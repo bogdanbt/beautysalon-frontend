@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.profile-page {
+  background-color: #f9f7f3;
+  font-family: 'Playfair Display', serif;
+  min-height: 100vh;
+  padding: 4rem 2rem;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profile-header h1 {
+  font-size: 2.5rem;
+  color: #5C4524;
+  margin-bottom: 1rem;
+}
+
+.welcome-text {
+  font-size: 1.2rem;
+  color: #7a6e58;
+}
+
+.appointments-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.appointments-section h2 {
+  font-size: 2rem;
+  color: #5C4524;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.no-appointments {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #7a6e58;
+}
+
+.appointments-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.appointment-card {
+  background-color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.appointment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.appointment-info p {
+  margin: 0.5rem 0;
+}
+
+.appointment-date {
+  color: #7a6e58;
+  font-size: 1rem;
+}
+
+.appointment-service {
+  font-size: 1.2rem;
+  color: #5C4524;
+}

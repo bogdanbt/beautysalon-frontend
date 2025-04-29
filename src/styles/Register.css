@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f7f3;
+  font-family: 'Playfair Display', serif;
+}
+
+.register-card {
+  background-color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.register-card h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #5C4524;
+}
+
+.register-card p {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #7a6e58;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #5C4524;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f7f3;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #5C4524;
+}
+
+.register-btn {
+  width: 100%;
+  background-color: #5C4524;
+  color: #fff;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.register-btn:hover {
+  background-color: #3e2d1c;
+  transform: translateY(-2px);
+}
+
+.bottom-text {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #5C4524;
+}
+
+.bottom-text a {
+  color: #5C4524;
+  text-decoration: underline;
+}

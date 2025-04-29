@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.single-service-page {
+  background-color: #f9f7f3;
+  font-family: 'Playfair Display', serif;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+}
+
+.service-section {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.single-service-card {
+  background-color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.single-service-card-content {
+  flex: 1;
+  text-align: left;
+}
+
+.single-service-card-content h2 {
+  font-size: 2.5rem;
+  color: #5C4524;
+  margin-bottom: 1rem;
+}
+
+.service-description {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: #7a6e58;
+}
+
+.single-service-card-content p {
+  margin: 0.7rem 0;
+  font-size: 1.1rem;
+  color: #5C4524;
+}
+
+.single-service-photo-large {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.single-service-photo-placeholder-large {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  background-color: #eee;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* На больших экранах фото справа */
+@media (min-width: 768px) {
+  .single-service-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .single-service-card-content {
+    flex: 1;
+    padding-right: 2rem;
+  }
+
+  .single-service-photo-large,
+  .single-service-photo-placeholder-large {
+    flex-shrink: 0;
+    max-width: 300px;
+    height: 300px;
+  }
+}
+
+.booking-section {
+  max-width: 1000px;
+  margin: 3rem auto 0;
+  text-align: center;
+}
+
+.booking-section h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #5C4524;
+}
+
+.book-btn {
+  margin-top: 2rem;
+  background-color: #5C4524;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.book-btn:hover {
+  background-color: #3e2d1c;
+  transform: translateY(-2px);
+}

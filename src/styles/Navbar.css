@@ -1,0 +1,63 @@
+/* styles/Navbar.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap');
+
+.navbar {
+  background-color: #f9f7f3; /* Светлый бежевый фон */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: 'Playfair Display', serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #5C4524; /* Темный оливковый */
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #5C4524;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #3e2d1c; /* Чуть темнее при наведении */
+}
+
+.btn-logout {
+  background: none;
+  border: 1px solid #5C4524;
+  color: #5C4524;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: #5C4524;
+  color: #fff;
+}
