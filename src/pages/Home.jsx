@@ -73,7 +73,7 @@ export default function Home() {
                 <p>{service.description}</p>
                 <p className="price">${service.price}</p>
                 <a href={`/services/${service.id}`} className="service-btn">
-                  View Service
+                  View Treatment
                 </a>
               </article>
             </li>

@@ -4,7 +4,7 @@ import axios from "axios";
 import BookingCalendar from "../components/BookingCalendar";
 import "../styles/SingleCustomerService.css";
 import { BASE_API_URL } from "../api";
-import Spinner from "./Spinner";
+import Spinner from "../components/Spinner";
 
 export default function SingleCustomerService() {
   const { id } = useParams(); // serviceId
