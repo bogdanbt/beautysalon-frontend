@@ -3,6 +3,7 @@ import axios from "axios";
 import "../styles/BookingCalendar.css";
 import AuthModal from "./AuthModal";
 import { BASE_API_URL } from "../api";
+import Spinner from "./Spinner";
 
 export default function BookingCalendar({ serviceId }) {
   const [slotsData, setSlotsData] = useState({});
@@ -19,22 +20,31 @@ export default function BookingCalendar({ serviceId }) {
   const [authMode, setAuthMode] = useState("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const token = localStorage.getItem("token");
   const isAuthenticated = !!token;
-
   useEffect(() => {
-    axios
-      .get(`${BASE_API_URL}/api/masters/by-service/${serviceId}`)
-      .then((res) => setMasters(res.data));
+    const fetchData = async () => {
+      try {
+        const [mastersRes, slotsRes] = await Promise.all([
+          axios.get(`${BASE_API_URL}/api/masters/by-service/${serviceId}`),
+          axios.get(`${BASE_API_URL}/api/masters/available-slots?serviceId=${serviceId}`)
+        ]);
+
+        setMasters(mastersRes.data);
+        setSlotsData(slotsRes.data);
+      } catch (err) {
+        alert("Failed to load booking data");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, [serviceId]);
 
-  useEffect(() => {
-    axios
-      .get(`${BASE_API_URL}/api/masters/available-slots?serviceId=${serviceId}`)
-      .then((res) => setSlotsData(res.data))
-      .catch(() => alert("Failed to load slots"));
-  }, [serviceId]);
+
 
   useEffect(() => {
     if (selectedMasterIds.length === 0) {
@@ -188,6 +198,10 @@ export default function BookingCalendar({ serviceId }) {
 
   return (
     <div className="booking-container">
+       {loading ? (
+      <Spinner />
+    ) : (
+      <>
       <div className="master-gallery">
         {masters.map((master) => (
           <div
@@ -307,6 +321,8 @@ export default function BookingCalendar({ serviceId }) {
           onClose={() => setShowAuthModal(false)}
         />
       )}
+      </>
+    )}
     </div>
   );
 }

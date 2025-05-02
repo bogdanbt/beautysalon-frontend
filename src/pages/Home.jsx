@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/Home.css";
+import Spinner from "../components/Spinner"; 
+
 import { BASE_API_URL } from "../api";
 export default function Home() {
   const [services, setServices] = useState([]);
   const [error, setError] = useState(null);
-
+  const [loading, setLoading] = useState(true); 
   useEffect(() => {
     const fetchServices = async () => {
       try {
@@ -15,6 +17,8 @@ export default function Home() {
       } catch (err) {
         console.error("Error fetching services:", err);
         setError("Unable to load services. Please try again later.");
+      }finally {
+        setLoading(false); 
       }
     };
 
@@ -49,7 +53,9 @@ export default function Home() {
       <section className="services-section">
         <h2>Our Treatments</h2>
         {error && <p className="error">{error}</p>}
-
+        {loading ? (
+    <Spinner />
+  ) : (
         <ul className="services-grid">
           {services.slice(0, 3).map((service) => (
             <li className="service-card fade-in-up" key={service.id}>
@@ -73,6 +79,7 @@ export default function Home() {
             </li>
           ))}
         </ul>
+  )}
       </section>
 
       {/* Discover Section */}

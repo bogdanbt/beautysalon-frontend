@@ -3,24 +3,37 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/CustomerServicesPage.css";
 import { BASE_API_URL } from "../api";
+import Spinner from "../components/Spinner";
+
 export default function CustomerServicesPage() {
   const [services, setServices] = useState([]);
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    axios
-      .get(`${BASE_API_URL}/api/services`)
-      .then((res) => setServices(res.data))
-      .catch(() => alert("Failed to load services"));
+    const fetchServices = async () => {
+      try {
+        const res = await axios.get(`${BASE_API_URL}/api/services`);
+        setServices(res.data);
+      } catch (err) {
+        alert("Failed to load services");
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchServices();
   }, []);
+  
 
   return (
     <main className="services-page">
       <section className="services-section">
         <h2>Our Treatments</h2>
-        {services.length === 0 && (
-          <p className="error">No services available yet</p>
-        )}
+        {loading ? (
+    <Spinner />
+  ) : services.length === 0 ? (
+    <p className="error">No services available yet</p>
+  ) : (
         <ul className="services-grid">
           {services.map((service) => (
             <li className="service-card" key={service.id}>
@@ -54,6 +67,7 @@ export default function CustomerServicesPage() {
             </li>
           ))}
         </ul>
+  ) }
       </section>
     </main>
   );

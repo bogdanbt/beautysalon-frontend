@@ -4,6 +4,8 @@ import axios from "axios";
 import BookingCalendar from "../components/BookingCalendar";
 import "../styles/SingleCustomerService.css";
 import { BASE_API_URL } from "../api";
+import Spinner from "./Spinner";
+
 export default function SingleCustomerService() {
   const { id } = useParams(); // serviceId
   const [service, setService] = useState(null);
@@ -12,12 +14,22 @@ export default function SingleCustomerService() {
   const [selectedMaster, setSelectedMaster] = useState("");
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(`${BASE_API_URL}/api/services/${id}`)
-      .then((res) => setService(res.data))
-      .catch(() => alert("Failed to load service"));
+    const fetchService = async () => {
+      try {
+        const res = await axios.get(`${BASE_API_URL}/api/services/${id}`);
+        setService(res.data);
+      } catch (error) {
+        console.error("Failed to load service", error);
+        alert("Failed to load service");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchService();
   }, [id]);
 
   const handleBooking = () => {
@@ -70,6 +82,10 @@ export default function SingleCustomerService() {
     return <div className="loading">Loading service details...</div>;
 
   return (
+     loading ? (
+          <Spinner />
+        ) : (
+          <>
     <main className="single-service-page">
       <section className="service-section">
         <article className="single-service-card">
@@ -116,5 +132,7 @@ export default function SingleCustomerService() {
         </button>
       </section>
     </main>
+    </>
+        )
   );
 }
