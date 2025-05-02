@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap');
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .home-page {
   font-family: 'Playfair Display', serif;
   background-color: #f9f7f3;
@@ -8,7 +14,7 @@
   scroll-behavior: smooth;
 }
 
-/* Hero Section */
+
 /* Hero Section */
 .hero-section {
     display: flex;
@@ -52,15 +58,24 @@
     transform: translateY(-3px);
   }
   
-  .hero-image-wrapper {
+  /* .hero-image-wrapper {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 300px;
+  } */
+  .hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 280px;
+    max-width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
   }
-  
-  .hero-image {
+  /* .hero-image {
     width: 400px;
     height: 500px;
     object-fit: cover;
@@ -68,8 +83,17 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background: none; 
     padding: 0; 
-  }
+  } */
   
+  .hero-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 4 / 5; 
+    object-fit: cover;
+    border-radius: 50% / 40%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
 /* Services Section */
 .services-section {
   text-align: center;
@@ -259,4 +283,26 @@
 
 .service-btn:hover {
   background-color: #3e2d1c;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
 }

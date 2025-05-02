@@ -13,70 +13,54 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="navbar">
-      <div className="container">
-        <Link to="/" className="nav-logo">
-          Beauty Salon
-        </Link>
-        <ul className="nav-links">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/services">All Services</Link>
-          </li>
+    
+<nav className="navbar">
+  <div className="container">
+    <Link to="/" className="nav-logo">Beauty Salon</Link>
 
-          {!token && (
-            <>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
-            </>
-          )}
+    {/* Burger menu checkbox */}
+    <input type="checkbox" id="menu-toggle" className="menu-toggle" />
+    <label htmlFor="menu-toggle" className="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
 
-          {token && role === "client" && (
-            <>
-              <li>
-                <Link to="/profile">My Profile</Link>
-              </li>
-              <li>
-                <button onClick={handleLogout} className="btn-logout">
-                  Logout
-                </button>
-              </li>
-            </>
-          )}
+    <ul className="nav-links">
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/services">All Services</Link></li>
 
-          {token && role === "admin" && (
-            <>
-              <li>
-                <Link to="/admin/profile">Admin Profile</Link>
-              </li>
-              <li>
-                <button onClick={handleLogout} className="btn-logout">
-                  Logout
-                </button>
-              </li>
-            </>
-          )}
+      {!token && (
+        <>
+          <li><Link to="/login">Login</Link></li>
+          <li><Link to="/register">Register</Link></li>
+        </>
+      )}
 
-          {token && role === "master" && (
-            <>
-              <li>
-                <Link to="/master-profile">Master Profile</Link>
-              </li>
-              <li>
-                <button onClick={handleLogout} className="btn-logout">
-                  Logout
-                </button>
-              </li>
-            </>
-          )}
-        </ul>
-      </div>
-    </nav>
+      {token && role === "client" && (
+        <>
+          <li><Link to="/profile">My Profile</Link></li>
+          <li><button onClick={handleLogout} className="btn-logout">Logout</button></li>
+        </>
+      )}
+
+      {token && role === "admin" && (
+        <>
+          <li><Link to="/admin/profile">Admin Profile</Link></li>
+          <li><button onClick={handleLogout} className="btn-logout">Logout</button></li>
+        </>
+      )}
+
+      {token && role === "master" && (
+        <>
+          <li><Link to="/master-profile">Master Profile</Link></li>
+          <li><button onClick={handleLogout} className="btn-logout">Logout</button></li>
+        </>
+      )}
+    </ul>
+  </div>
+</nav>
+
   );
 }
+

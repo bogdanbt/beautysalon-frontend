@@ -1,9 +1,8 @@
-/* styles/Navbar.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap');
 
+
 .navbar {
-  background-color: #f9f7f3; /* Светлый бежевый фон */
+  background-color: #f9f7f3;
   padding: 1rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   font-family: 'Playfair Display', serif;
@@ -15,12 +14,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .nav-logo {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #5C4524; /* Темный оливковый */
+  color: #5C4524;
   text-decoration: none;
 }
 
@@ -30,6 +30,10 @@
   gap: 2rem;
   align-items: center;
   margin: 0;
+}
+
+.nav-links li {
+  display: inline-block;
 }
 
 .nav-links li a {
@@ -42,8 +46,9 @@
 }
 
 .nav-links li a:hover {
-  color: #3e2d1c; /* Чуть темнее при наведении */
+  color: #3e2d1c;
 }
+
 
 .btn-logout {
   background: none;
@@ -60,4 +65,51 @@
 .btn-logout:hover {
   background-color: #5C4524;
   color: #fff;
+}
+
+
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  margin-left: auto;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background: #5C4524;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+
+@media (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    margin-top: 1rem;
+    align-items: center; 
+  text-align: center;
+  padding: 0;
+  }
+
+  .menu-toggle:checked + .burger + .nav-links {
+    display: flex;
+  }
+
+  .nav-links li {
+    text-align: center;
+    padding: 0.5rem 0;
+  }
 }
