@@ -32,7 +32,7 @@ export default function Home() {
             True Potential.
           </p>
           <Link to="/services">
-            <button className="book-btn">All Services</button>
+            <button className="book-btn">All Treatments</button>
           </Link>
         </div>
 
@@ -47,7 +47,7 @@ export default function Home() {
 
       {/* Services Section */}
       <section className="services-section">
-        <h2>Our Services</h2>
+        <h2>Our Treatments</h2>
         {error && <p className="error">{error}</p>}
 
         <ul className="services-grid">

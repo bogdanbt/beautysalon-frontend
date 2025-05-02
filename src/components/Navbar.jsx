@@ -28,7 +28,7 @@ export default function Navbar() {
 
     <ul className="nav-links">
       <li><Link to="/">Home</Link></li>
-      <li><Link to="/services">All Services</Link></li>
+      <li><Link to="/services">Our Treatments</Link></li>
 
       {!token && (
         <>
